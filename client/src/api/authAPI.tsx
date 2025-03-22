@@ -1,4 +1,5 @@
 import { UserLogin } from "../interfaces/UserLogin";
+import AuthService from "../utils/auth"
 
 const login = async (userInfo: UserLogin) => {
   // TODO: make a POST request to the login route
