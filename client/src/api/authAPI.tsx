@@ -2,9 +2,8 @@ import { UserLogin } from "../interfaces/UserLogin";
 import AuthService from "../utils/auth"
 
 const login = async (userInfo: UserLogin) => {
-  // TODO: make a POST request to the login route
+  //make a POST request to the login route
   try {
-    // const { username, password } = userInfo; // Extract username and password
     const response = await fetch("/auth/login", {  //API endpoint
       method: "POST",
       headers: {
