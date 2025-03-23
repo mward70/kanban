@@ -2,16 +2,18 @@ import { Router, Request, Response } from 'express';
 import { User } from '../models/user.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import dotenv from "dotenv";
+dotenv.config();
 
 export const login = async (req: Request, res: Response) => {
   //If the user exists and the password is correct, return a JWT token
   try{
     const {username, password}= req.body;
 
-  if (!username || !password){
-    res.status(400).json({error:'Username and password are required'}); 
-    return
-  }
+  // if (!username || !password){
+  //   res.status(400).json({error:'Username and password are required'}); 
+  //   return
+  // }
   
     // Find user 
     const user = await User.findOne({ where: { username } });
@@ -21,7 +23,7 @@ export const login = async (req: Request, res: Response) => {
   }
   
     // Validate password
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    const passwordMatch:boolean = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
       res.status(401).json({ error: "Invalid credentials" });
       return
@@ -33,7 +35,6 @@ export const login = async (req: Request, res: Response) => {
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).json({ error: "Internal server error" });
-    return
   }
 
 };
