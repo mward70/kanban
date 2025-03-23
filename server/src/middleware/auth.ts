@@ -18,7 +18,7 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
   }
 
   const token = authHeader.split(" ")[1]; // extracts token
-  const SECRET_KEY = process.env.SECRET_KEY || '';
+  const SECRET_KEY = process.env.JWT_SECRET || '';
 
   jwt.verify(token, SECRET_KEY, (err, decoded) => {
     if (err) {
