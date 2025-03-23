@@ -10,6 +10,12 @@ KanBan board for tracking goals that utilizes JWT authentication.
 
 ## Description
 This application allows users to log in to a web application utilizing JWT token encryption. Once inside of the application, the user can create to-do lists in kanban fashion.
+![alt text](image-1.png)
+Log in
+![alt text](image-2.png)
+Create a Ticket
+![alt text](image-3.png)
+View Kanban board
 
 ## Installation Instructions
 Follow the link to the run the deployed application. If using locally, run in terminal 'npm install' followed by 'npm run build' and 'npm run start'. 
